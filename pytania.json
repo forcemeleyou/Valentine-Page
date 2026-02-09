@@ -1,0 +1,32 @@
+[
+    {
+        "pytanie": "Where did we first meet?",
+        "odpowiedzi": ["on the bus", "on the ice rink", "at school", "in the gallery"],
+        "poprawna": "0"
+    },
+    {
+        "pytanie": "Who texted first?",
+        "odpowiedzi": ["me", "you", "we texted at the same time", "I don't remember"],
+        "poprawna": "1"
+    },
+    {
+        "pytanie": "What was our first conversation about?",
+        "odpowiedzi": ["music", "school", "something stupid", "food"],
+        "poprawna": "2"
+    },
+    {
+        "pytanie": "What is our favorite thing to do together?",
+        "odpowiedzi": ["watch movies", "go for walks", "talk for hours", "play games"],
+        "poprawna": "2"
+    },
+    {
+        "pytanie": "Who fell in love first?",
+        "odpowiedzi": ["me", "you", "both at the same time", "still falling"],
+        "poprawna": "3"
+    },
+    {
+        "pytanie": "What reminds us of each other the most?",
+        "odpowiedzi": ["a song", "a place", "a smell", "a message"],
+        "poprawna": "0"
+    }
+]

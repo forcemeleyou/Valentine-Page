@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(#e66465, #9198e5);
+  align-content: center;
+}
+.container {
+  width: 1400px;
+  height: 700px;
+  background-color: rgba(255, 192, 203, 0.466);
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin: auto;
+  align-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.start,
+.end {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 50px;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: pop 0.6s ease;
+  margin: auto;
+  z-index: 9999;
+}
+
+.start h2 {
+  font-size: 24px;
+  color: #ff4d6d;
+  margin-bottom: 15px;
+}
+
+.start h2 i {
+  color: #ff4d6d;
+  margin-left: 6px;
+}
+
+.start p {
+  font-size: 16px;
+  color: #555;
+  margin: 6px 0;
+}
+
+.button_start {
+  margin-top: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+  transition: all 0.25s ease;
+}
+
+.button_start i {
+  width: 20px;
+  height: 20px;
+}
+
+.button_start:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(255, 77, 109, 0.55);
+}
+
+.button_start:active {
+  transform: scale(0.95);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.snake_segment {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 30% 30%, #ff4db8, #c7007f);
+  transition: transform 0.15s linear;
+}
+.snake_head {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(250, 93, 122);
+  background: radial-gradient(circle at 40% 40%, #ff66c4, #ff1aa3);
+  transition: transform 0.15s linear;
+  border-radius: 0px 10px 10px 0px;
+}
+.snake_head::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  top: 8px;
+  left: 20px;
+}
+.snake_head::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  top: 20px;
+  left: 20px;
+}
+.heart {
+  position: absolute;
+  animation: pulse 1s infinite alternate;
+}
+.heart img {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+.licznik {
+  margin-left: 1460px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  font-family: "Poppins", sans-serif;
+}
+.question {
+  position: absolute;
+  top: 80px;
+  left: 500px;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  box-shadow: 0 20px 40px rgba(255, 120, 170, 0.35);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  z-index: 9999;
+}
+
+.pytanie {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.question > div[class^="odpowiedz"] {
+  background: rgba(255, 255, 255, 0.9);
+  color: #ff4f87;
+  padding: 14px 18px;
+  margin: 12px 0;
+  border-radius: 16px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.question > div[class^="odpowiedz"]:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #fff;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
+}
+.question > div[class^="odpowiedz"]:active {
+  transform: scale(0.97);
+}
+.try{
+  display: none;
+}
+@media (max-width:1632px) {
+  .container,.licznik{
+    display: none;
+  }
+  .try{
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}

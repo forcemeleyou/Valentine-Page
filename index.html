@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="question.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="start">
+            <h2>Use arrows to get hearts<i data-lucide="heart"></i> </h2>
+            <p>Random questions will appear during the game </p>
+            <p class="too_p">When you're ready, get started!</p>
+            <div class="button_start" onclick="game()">START <i data-lucide="play"></i> </div>
+        </div>
+        <div class="end" style="display: none;">
+            <h2>YOU LOST </h2>
+            <p>Try again</p>
+            <div class="button_start" onclick="game()">START <i data-lucide="play"></i> </div>
+        </div>
+        <div class="question" style="display: none;">
+            <h2 class="pytanie"></h2>
+            <div class="odpowiedz1" data-index="0"></div>
+            <div class="odpowiedz2" data-index="1"></div>
+            <div class="odpowiedz3" data-index="2"></div>
+            <div class="odpowiedz4" data-index="3"></div>
+        </div>
+    </div>
+    <p class="licznik">Number of hearts: 0</p>
+    <div class="try" >Strona niedostepna na małym ekranie</div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
