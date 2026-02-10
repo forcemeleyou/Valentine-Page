@@ -1,43 +1,46 @@
-import { win } from './win.js';
+import { win } from "./win.js";
 const container = document.querySelector(".container");
-const containerPosition = container.getBoundingClientRect();
-
 
 function addheart() {
-  let left = Math.floor(Math.random() * (containerPosition.width - 40));
-  let top = Math.floor(Math.random() * (containerPosition.height - 40));
+  // Pobieramy aktualny rozmiar kontenera
+  const containerWidth = container.clientWidth;
+  const containerHeight = container.clientHeight;
 
+  // Losujemy pozycję serduszka
+  let left = Math.floor(Math.random() * (containerWidth - 40));
+  let top = Math.floor(Math.random() * (containerHeight - 40));
+
+  // Zaokrąglamy do siatki 30px
   left = Math.floor(left / 30) * 30;
   top = Math.floor(top / 30) * 30;
 
+  // Tworzymy serduszko
   let heart = document.createElement("div");
   heart.classList.add("heart");
+  heart.style.position = "absolute"; // absolutne względem kontenera
   heart.style.left = left + "px";
   heart.style.top = top + "px";
-  heart.innerHTML = `<img src="favicon.png">`;
+  heart.innerHTML = `<img src="./favicon.png">`; // upewnij się, że ścieżka jest poprawna
 
   container.appendChild(heart);
-
   return { top: top, left: left };
 }
-
 
 export let gameState = {
   paused: false,
   licznik: 0,
   ile_popranych: 0,
   ile_pytan: 0,
-  ile_blednych: 0
+  ile_blednych: 0,
 };
 
-
-
 export function game() {
-  document.querySelector(".title").style.opacity = "1"
+  document.querySelector(".title").style.opacity = "1";
   gameState.licznik = 0;
   gameState.paused = false;
-  document.querySelector(".licznik").innerHTML = "Number of hearts: " + gameState.licznik;
-  document.querySelectorAll(".snake_segment").forEach(seg => seg.remove());
+  document.querySelector(".licznik").innerHTML =
+    "Number of hearts: " + gameState.licznik;
+  document.querySelectorAll(".snake_segment").forEach((seg) => seg.remove());
   document.querySelector(".heart")?.remove();
   document.querySelector(".start").style.display = "none";
   document.querySelector(".end").style.display = "none";
@@ -97,16 +100,24 @@ export function game() {
 
     if (direction == "up") {
       head.y -= speed;
-      document.querySelector(".snake_head").style.setProperty("border-radius", "10px 10px 0px 0px");
+      document
+        .querySelector(".snake_head")
+        .style.setProperty("border-radius", "10px 10px 0px 0px");
     } else if (direction == "down") {
       head.y += speed;
-      document.querySelector(".snake_head").style.setProperty("border-radius", "0px 0px 10px 10px");
+      document
+        .querySelector(".snake_head")
+        .style.setProperty("border-radius", "0px 0px 10px 10px");
     } else if (direction == "left") {
       head.x -= speed;
-      document.querySelector(".snake_head").style.setProperty("border-radius", "10px 0px 0px 10px");
+      document
+        .querySelector(".snake_head")
+        .style.setProperty("border-radius", "10px 0px 0px 10px");
     } else if (direction == "right") {
       head.x += speed;
-      document.querySelector(".snake_head").style.setProperty("border-radius", "0px 10px 10px 0px");
+      document
+        .querySelector(".snake_head")
+        .style.setProperty("border-radius", "0px 10px 10px 0px");
     }
 
     positions.push(head);
@@ -118,39 +129,50 @@ export function game() {
     });
 
     let heart = document.querySelector(".heart");
-    if(heart) {
-      let heartRect = heart.getBoundingClientRect();
-      let heartTop = heartRect.top - containerPosition.top;
-      let heartLeft = heartRect.left - containerPosition.left;
+if (heart) {
+  let heartLeft = heart.offsetLeft; // pozycja w kontenerze
+  let heartTop = heart.offsetTop;
 
-      if(Math.abs(head.x - heartLeft) < 25 && Math.abs(head.y - heartTop) < 25){
-        heart.remove();
-        gameState.licznik++;
-        document.querySelector(".licznik").innerHTML = "Number of hearts: " + gameState.licznik;
-        addheart();
+  let headX = positions[positions.length - 1].x;
+  let headY = positions[positions.length - 1].y;
 
-        if(gameState.licznik % 3 == 0) {
-          gameState.paused = true;
-          if(typeof question !== 'undefined') {
-            question();
-          }
-        }
-        if(gameState.licznik == 20){
-          win()
-  }
+  if (Math.abs(headX - heartLeft) < 25 && Math.abs(headY - heartTop) < 25) {
+    heart.remove();
+    gameState.licznik++;
+    document.querySelector(".licznik").innerHTML = "Number of hearts: " + gameState.licznik;
+
+    addheart(); // dodajemy nowe serduszko
+
+    if (gameState.licznik % 3 === 0) {
+      gameState.paused = true;
+      if (typeof question !== "undefined") {
+        question();
       }
     }
 
-    if(head.x < 0 || head.x > containerPosition.width - 30 || head.y < 0 || head.y > containerPosition.height - 30) {
+    if (gameState.licznik === 20) {
+      win();
+    }
+  }
+}
+
+
+    if (
+      head.x < 0 ||
+      head.x > container.clientWidth - 30 ||
+      head.y < 0 ||
+      head.y > container.clientHeight - 30
+    ) {
       clearInterval(interval);
       document.querySelector(".end").style.display = "block";
       document.querySelector(".heart")?.remove();
-      gameState.ile_blednych = 0
-      gameState.ile_popranych = 0
-      gameState.ile_pytan = 0
+      gameState.ile_blednych = 0;
+      gameState.ile_popranych = 0;
+      gameState.ile_pytan = 0;
     }
   }, 150);
 
   addheart();
 }
 window.game = game;
+console.log("poprawione")
