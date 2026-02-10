@@ -1,3 +1,4 @@
+import { win } from './win.js';
 const container = document.querySelector(".container");
 const containerPosition = container.getBoundingClientRect();
 
@@ -23,10 +24,16 @@ function addheart() {
 
 export let gameState = {
   paused: false,
-  licznik: 0
+  licznik: 0,
+  ile_popranych: 0,
+  ile_pytan: 0,
+  ile_blednych: 0
 };
 
+
+
 export function game() {
+  document.querySelector(".title").style.opacity = "1"
   gameState.licznik = 0;
   gameState.paused = false;
   document.querySelector(".licznik").innerHTML = "Number of hearts: " + gameState.licznik;
@@ -83,7 +90,6 @@ export function game() {
     if (gameState.paused) {
       return;
     }
-
     let head = {
       x: positions[positions.length - 1].x,
       y: positions[positions.length - 1].y,
@@ -123,12 +129,15 @@ export function game() {
         document.querySelector(".licznik").innerHTML = "Number of hearts: " + gameState.licznik;
         addheart();
 
-        if(gameState.licznik % 4 == 0) {
+        if(gameState.licznik % 3 == 0) {
           gameState.paused = true;
           if(typeof question !== 'undefined') {
             question();
           }
         }
+        if(gameState.licznik == 20){
+          win()
+  }
       }
     }
 
@@ -136,11 +145,12 @@ export function game() {
       clearInterval(interval);
       document.querySelector(".end").style.display = "block";
       document.querySelector(".heart")?.remove();
+      gameState.ile_blednych = 0
+      gameState.ile_popranych = 0
+      gameState.ile_pytan = 0
     }
   }, 150);
 
   addheart();
 }
-
-
 window.game = game;

@@ -5,28 +5,68 @@
         "poprawna": "0"
     },
     {
-        "pytanie": "Who texted first?",
-        "odpowiedzi": ["me", "you", "we texted at the same time", "I don't remember"],
-        "poprawna": "1"
-    },
-    {
-        "pytanie": "What was our first conversation about?",
-        "odpowiedzi": ["music", "school", "something stupid", "food"],
+        "pytanie": "When did I get my first flowers from you?",
+        "odpowiedzi": ["15.07.2025", "03.02.2025", "08.03.2025", "17.08.2025"],
         "poprawna": "2"
     },
     {
-        "pytanie": "What is our favorite thing to do together?",
-        "odpowiedzi": ["watch movies", "go for walks", "talk for hours", "play games"],
-        "poprawna": "2"
+        "pytanie": "When we first kissed?",
+        "odpowiedzi": ["on international kiss day", "on children's day", "on the last day of school", "07.06.2025"],
+        "poprawna": "0"
     },
     {
-        "pytanie": "Who fell in love first?",
-        "odpowiedzi": ["me", "you", "both at the same time", "still falling"],
+        "pytanie": "What is my favorite fast food?",
+        "odpowiedzi": ["fries", "hamburger", "kebab", "your pizza"],
         "poprawna": "3"
     },
     {
-        "pytanie": "What reminds us of each other the most?",
-        "odpowiedzi": ["a song", "a place", "a smell", "a message"],
+        "pytanie": "How many guinea pigs have I had?",
+        "odpowiedzi": ["one", "two", "three", "four"],
+        "poprawna": "2"
+    },
+    {
+        "pytanie": "What movie did we see on my birthday?",
+        "odpowiedzi": ["Ford v Ferrari (Le Mans ’66)", "Days of Thunder", "Formula 1", "Speed Racer"],
+        "poprawna": "2"
+    },
+    {
+        "pytanie": "What I like to do most?",
+        "odpowiedzi": ["chilling at home with you", "party", "ice skate with you", "go out for food"],
+        "poprawna": "2"
+    },
+    {
+        "pytanie": "Where was our first date?",
+        "odpowiedzi": ["at the cinema", "on the ice rink", "in the park", "on the speedway"],
+        "poprawna": "1"
+    },
+    {
+        "pytanie": "What is my most hated subject?",
+        "odpowiedzi": ["German lesson", "chemistry", "history", "English lesson"],
+        "poprawna": "0"
+    },
+    {
+        "pytanie": "Have I ever hit you?",
+        "odpowiedzi": ["no never", "you always beat me","it happens sometimes","maybe one time"],
+        "poprawna": "1"
+    },
+    {
+        "pytanie": "How tall am I?",
+        "odpowiedzi": ["160cm","130cm","168cm","164cm"],
+        "poprawna": "3"
+    },
+    {
+        "pytanie": "What I tell you most often?",
+        "odpowiedzi": ["I love you","I would lick you","I'll kill you","good boy"],
+        "poprawna": "1"
+    },
+    {
+        "pytanie": "Who suggested the meeting first?",
+        "odpowiedzi": ["you","me","I don't remember","at the same time"],
+        "poprawna": "0"
+    },
+    {
+        "pytanie":"What was our first conversation about?",
+        "odpowiedzi": ["about our interests","about school and programming","about grades","about food"],
         "poprawna": "0"
     }
 ]

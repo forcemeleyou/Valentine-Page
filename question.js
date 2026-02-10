@@ -1,10 +1,21 @@
 import { gameState } from './script.js';
 
+let tab_random = []
 function question() {
+  gameState.ile_pytan += 1
   fetch("pytania.json")
   .then(response => response.json())
   .then(pytanie => {
-    let random = Math.floor(Math.random()*pytanie.length)
+      if(tab_random.length >= pytanie.length) {
+      tab_random = []
+    }
+      let random
+      do{
+      random =  Math.floor(Math.random()*(pytanie.length-1))
+      }
+      while(tab_random.includes(random))
+      tab_random.push(random)
+    document.querySelector(".which_question").innerHTML = "Question: " + gameState.ile_pytan
     document.querySelector(".pytanie").innerHTML = (pytanie[random].pytanie);
     document.querySelector(".odpowiedz1").innerHTML = (pytanie[random].odpowiedzi[0]);
     document.querySelector(".odpowiedz2").innerHTML = (pytanie[random].odpowiedzi[1]);
@@ -21,7 +32,8 @@ function question() {
     odpowiedzi.forEach(el => {
       el.addEventListener("click", () => {
         const clicked = el.getAttribute("data-index");
-        if(clicked == pytanie[0].poprawna){
+        if(clicked == pytanie[random].poprawna){
+          gameState.ile_popranych += 1
           el.style.setProperty("background-color", "green");
 
           setTimeout(() => {
@@ -30,6 +42,7 @@ function question() {
             el.style.setProperty("background-color", "");
           }, 500);
         } else {
+          gameState.ile_blednych+=1
           el.style.setProperty("background-color", "red");
           setTimeout(()=>{
             gameState.paused = false

@@ -12,37 +12,67 @@
         rel="stylesheet">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script type="module" src="script.js" defer></script>
     <script type="module" src="question.js" defer></script>
+    <script type="module" src="win.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" ">
+        <h2 class="title" style="opacity: 0;">Collect 20 hearts to pass the game </h2>
         <div class="start">
-            <h2>Use arrows to get hearts<i data-lucide="heart"></i> </h2>
+            <h1>Hello Milk! <i data-lucide="heart"></i></h1>
+            <h2>Use arrows to get hearts </h2>
             <p>Random questions will appear during the game </p>
             <p class="too_p">When you're ready, get started!</p>
-            <div class="button_start" onclick="game()">START <i data-lucide="play"></i> </div>
+            <div class="button_start" onclick="game()">START<i data-lucide="play"></i> </div>
         </div>
         <div class="end" style="display: none;">
-            <h2>YOU LOST </h2>
-            <p>Try again</p>
-            <div class="button_start" onclick="game()">START <i data-lucide="play"></i> </div>
+            <h2>YOU LOST</h2>
+            <div class="button_start" onclick="game()">TRY AGAIN <i data-lucide="play"></i> </div>
         </div>
         <div class="question" style="display: none;">
+            <h1 class="which_question"></h1>
             <h2 class="pytanie"></h2>
             <div class="odpowiedz1" data-index="0"></div>
             <div class="odpowiedz2" data-index="1"></div>
             <div class="odpowiedz3" data-index="2"></div>
             <div class="odpowiedz4" data-index="3"></div>
+            <img src="lego_figure.png">
         </div>
     </div>
-    <p class="licznik">Number of hearts: 0</p>
-    <div class="try" >Strona niedostepna na małym ekranie</div>
+    <p class="licznik" ">Number of hearts: 0</p>
+    <div class="try">Strona niedostepna na małym ekranie</div>
+
+
+    <div class="wygrana" style="display: none;">
+        <div class="container_wygrana">
+            <div class="wygrana_text">
+                <h1>CONGRATULATIONS !!💖</h1>
+                <p>You made it through my Valentine's Day surprise 🎉</p>
+
+                <p class="sub">
+                    Thank you for being my Valentine 💖<br>
+                    For every smile, for your patience, and for making ordinary moments special.<br>
+                    You are wonderful and I love you so much 🤍
+                </p>
+                <div class="score_win">
+                    Correct answers:
+                    <span id="win-correct">0</span>/<span id="win-total">0</span>
+                </div>
+                 <p class="evrything_well" style="display: none;">Well done, you managed to guess all the questions! <br>I love you my valentine 💗</p>
+            </div>
+
+            <img src="lego_figure.png" alt="Lego Figure" class="lego-figure">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
     </script>
+
 </body>
 
 </html>
