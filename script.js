@@ -2,25 +2,24 @@ import { win } from "./win.js";
 const container = document.querySelector(".container");
 
 function addheart() {
-  // Pobieramy aktualny rozmiar kontenera
+
   const containerWidth = container.clientWidth;
   const containerHeight = container.clientHeight;
 
-  // Losujemy pozycję serduszka
+
   let left = Math.floor(Math.random() * (containerWidth - 40));
   let top = Math.floor(Math.random() * (containerHeight - 40));
 
-  // Zaokrąglamy do siatki 30px
   left = Math.floor(left / 30) * 30;
   top = Math.floor(top / 30) * 30;
 
-  // Tworzymy serduszko
+
   let heart = document.createElement("div");
   heart.classList.add("heart");
-  heart.style.position = "absolute"; // absolutne względem kontenera
+  heart.style.position = "absolute";
   heart.style.left = left + "px";
   heart.style.top = top + "px";
-  heart.innerHTML = `<img src="./favicon.png">`; // upewnij się, że ścieżka jest poprawna
+  heart.innerHTML = `<img src="./favicon.png">`;
 
   container.appendChild(heart);
   return { top: top, left: left };
@@ -155,8 +154,6 @@ if (heart) {
     }
   }
 }
-
-
     if (
       head.x < 0 ||
       head.x > container.clientWidth - 30 ||
